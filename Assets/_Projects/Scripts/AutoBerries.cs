@@ -11,6 +11,7 @@ public class AutoBerries : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        BerriesIncreaseRate = GlobalBerryFarmer.berriesPerSecond;
         InternalBerriesIncreaseRate = BerriesIncreaseRate;
         if (CreatingBerries == false)
         {
