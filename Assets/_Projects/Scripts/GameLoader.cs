@@ -17,12 +17,11 @@ public class GameLoader : MonoBehaviour
             savedBerries = PlayerPrefs.GetInt("SavedBerries", 0); // Retrieves the saved berry count, defaulting to 0 if not found
             GlobalBerries.totalBerries = savedBerries; // Sets the global berry count to the saved value
             savedBerryFarmers = PlayerPrefs.GetInt("SavedBerryFarmers", 0); // Retrieves the saved berry farmers count, defaulting to 0 if not found
-            GlobalBerryFarmer.berriesPerSecond = savedBerryFarmers; // Sets the global berry farmers count to the saved value
+            StatsDisplayScript.berriesPerSecond = savedBerryFarmers; // Sets the global berry farmers count to the saved value
             savedBerryFarmerCount = PlayerPrefs.GetInt("SavedBerryFarmerCount", 0); // Retrieves the saved berry farmer count, defaulting to 0 if not found
-            GlobalBerryFarmer.berryFarmerCount = savedBerryFarmerCount; // Sets the global berry farmer count to the saved value
+            StatsDisplayScript.berryFarmerCount = savedBerryFarmerCount; // Sets the global berry farmer count to the saved value
             savedBerryFarmers = PlayerPrefs.GetInt("SavedBerryFarmerValue", 50); // Retrieves the saved berry farmer value, defaulting to 50 if not found
             GlobalBerryFarmer.berryFarmerValue = savedBerryFarmers; // Sets the global berry farmer value to the saved value
-
         }
     }
 }
