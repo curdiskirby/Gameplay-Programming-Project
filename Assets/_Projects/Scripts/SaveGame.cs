@@ -12,6 +12,9 @@ public class SaveGame : MonoBehaviour
         PlayerPrefs.SetInt("SavedBerryFarmers", StatsDisplayScript.berriesPerSecond); // Saves the current berry farmers count to PlayerPrefs
         PlayerPrefs.SetInt("SavedBerryFarmerCount", StatsDisplayScript.berryFarmerCount); // Saves the current berry farmer count to PlayerPrefs
         PlayerPrefs.SetInt("SavedBerryFarmerValue", GlobalBerryFarmer.berryFarmerValue); // Saves the current berry farmer value to PlayerPrefs
+        PlayerPrefs.SetInt("SavedBerryBushCount", StatsDisplayScript.berryBushCount); // Saves the current berry bush count to PlayerPrefs
+        PlayerPrefs.SetInt("SavedBerryBushValue", GlobalBerryBush.berryBushValue); // Saves the current berry bush value to PlayerPrefs
+        PlayerPrefs.SetInt("SavedBerryPerClick", StatsDisplayScript.berriesPerClick); // Saves the current berries per click to PlayerPrefs
         PlayerPrefs.Save(); // Ensures that the data is saved immediately
     }
 }
