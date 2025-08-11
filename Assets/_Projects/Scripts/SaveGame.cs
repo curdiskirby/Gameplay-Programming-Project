@@ -24,7 +24,7 @@ public class SaveGame : MonoBehaviour
 
     private IEnumerator ResetSaveText()
     {
-        yield return new WaitForSeconds(1); // Waits for 2 seconds
+        yield return new WaitForSecondsRealtime(1); // Waits for 1 seconds in real time
         saveText.GetComponent<TextMeshProUGUI>().text = "Save Game"; // Resets the save text to an empty string
     }
 }

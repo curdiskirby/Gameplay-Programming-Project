@@ -31,6 +31,8 @@ public class GameLoader : MonoBehaviour
             GlobalBerryBush.berryBushValue = savedBerryBushValue; // Sets the global berry bush value to the saved value
             savedBerryPerClick = PlayerPrefs.GetInt("SavedBerryPerClick", 0); // Retrieves the saved berries per click, defaulting to 0 if not found
             StatsDisplayScript.berriesPerClick = savedBerryPerClick; // Sets the global berries per click to the saved value
+            MainMenuOptions.isLoading = false; // Resets the loading flag to false after loading the game
+            Time.timeScale = 1; // Resets the time scale to normal speed
 
         }
     }

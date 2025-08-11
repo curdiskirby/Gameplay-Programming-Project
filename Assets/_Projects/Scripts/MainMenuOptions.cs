@@ -9,6 +9,8 @@ public class MainMenuOptions : MonoBehaviour
 
     public void NewGame()
     {
+        GameStateManager.ResetGame(); // Resets the game state
+        isLoading = false; // Reset loading state
         SceneManager.LoadScene(1); // Loads the main game scene
     }
 
@@ -16,5 +18,14 @@ public class MainMenuOptions : MonoBehaviour
     {
         isLoading = true; // Sets the loading flag to true
         SceneManager.LoadScene(1); // Loads the main game scene
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit(); // Quits the application
+        Debug.Log("Game has been closed."); // Logs a message to the console
+        #if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false; // Stops play mode in the Unity Editor
+        #endif
     }
 }
