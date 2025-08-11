@@ -45,7 +45,7 @@ public class DisasterScript : MonoBehaviour
             berryLoss = Mathf.RoundToInt(GlobalBerries.totalBerries * 0.25f); // Calculates the berry loss
             statusBox.GetComponent<TextMeshProUGUI>().text = "Disaster! You lost " + berryLoss + " berries to foxes!";
             statusBox.GetComponent<Animation>().Play("StatusAnim");
-            GlobalBerries.totalBerries -= berryLoss; // Deducts the lost berries from the total
+            GlobalBerries.SubtractBerries(berryLoss); // Deducts the lost berries from the total
             yield return new WaitForSeconds(3); // Waits for 3 seconds before resetting the disaster
             statusBox.SetActive(false);
             statusBox.SetActive(true);
