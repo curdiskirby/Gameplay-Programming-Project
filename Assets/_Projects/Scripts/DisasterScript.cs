@@ -6,7 +6,8 @@ using TMPro;
 
 public class DisasterScript : MonoBehaviour
 {
-    public GameObject statusBox; // Reference to the status box GameObject
+    public GameObject statusText; // Reference to the status text GameObject
+    public GameObject foxSprite; // Reference to the fox sprite GameObject
     public float berryCheck;
     public int disasterChance; // Chance of a disaster occurring
     public bool disasterActive = false; // Flag to check if a disaster is active
@@ -43,12 +44,14 @@ public class DisasterScript : MonoBehaviour
         if (berryCheck >= disasterChance)
         {
             berryLoss = Mathf.RoundToInt(GlobalBerries.totalBerries * 0.25f); // Calculates the berry loss
-            statusBox.GetComponent<TextMeshProUGUI>().text = "Disaster! You lost " + berryLoss + " berries to foxes!";
-            statusBox.GetComponent<Animation>().Play("StatusAnim");
+            foxSprite.SetActive(true); // Activates the fox sprite to indicate a disaster
+            foxSprite.GetComponent<Animation>().Play("FoxAnim"); // Plays the fox animation
+            statusText.GetComponent<TextMeshProUGUI>().text = "Disaster! You lost " + berryLoss + " berries to foxes!";
+            statusText.GetComponent<Animation>().Play("StatusAnim");
             GlobalBerries.SubtractBerries(berryLoss); // Deducts the lost berries from the total
             yield return new WaitForSeconds(3); // Waits for 3 seconds before resetting the disaster
-            statusBox.SetActive(false);
-            statusBox.SetActive(true);
+            statusText.SetActive(false);
+            statusText.SetActive(true);
         }
         yield return new WaitForSeconds(10); // Waits for 10 seconds before allowing another disaster
         disasterActive = false; // Resets the disaster active flag
