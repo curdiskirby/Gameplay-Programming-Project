@@ -50,6 +50,7 @@ public class DisasterScript : MonoBehaviour
             statusText.GetComponent<Animation>().Play("StatusAnim");
             GlobalBerries.SubtractBerries(berryLoss); // Deducts the lost berries from the total
             yield return new WaitForSeconds(3); // Waits for 3 seconds before resetting the disaster
+            foxSprite.SetActive(false); // Deactivates the fox sprite
             statusText.SetActive(false);
             statusText.SetActive(true);
         }
