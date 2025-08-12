@@ -16,6 +16,6 @@ public class StatsDisplayScript : MonoBehaviour
     void Update()
     {
         Stats.GetComponent<TextMeshProUGUI>().text = "Berry Farmers: " + berryFarmerCount + " @ " + berriesPerSecond + " Per Second" + "\n"
-            + "Berry Farmers: " + berryBushCount + " @ +" + berriesPerClick + " Per Click"; // Updates the stats text with the current value
+            + "Berry Bushes: " + berryBushCount + " @ +" + berriesPerClick + " Per Click"; // Updates the stats text with the current value
     }
 }
