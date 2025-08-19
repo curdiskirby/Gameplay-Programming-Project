@@ -40,7 +40,7 @@ public class DisasterScript : MonoBehaviour
     IEnumerator StartDisaster()
     {
         disasterActive = true; // Sets the disaster as active
-        disasterChance = Random.Range(1,1); // Generates a random chance for the disaster
+        disasterChance = Random.Range(1,200); // Generates a random chance for the disaster
         if (berryCheck >= disasterChance)
         {
             berryLoss = Mathf.RoundToInt(GlobalBerries.totalBerries * 0.25f); // Calculates the berry loss
