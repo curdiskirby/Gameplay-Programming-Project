@@ -37,11 +37,17 @@ public class DisasterScript : MonoBehaviour
         }
     }
 
-    IEnumerator StartDisaster()
+    IEnumerator StartDisaster(bool forced = false)
     {
         disasterActive = true; // Sets the disaster as active
+
+        // Recalculate berryCheck so coroutine can be started from input at any time
+        berryCheck = GlobalBerries.totalBerries / 10;
         disasterChance = Random.Range(1,200); // Generates a random chance for the disaster
-        if (berryCheck >= disasterChance)
+
+        bool happens = forced || (berryCheck >= disasterChance);
+
+        if (happens)
         {
             berryLoss = Mathf.RoundToInt(GlobalBerries.totalBerries * 0.25f); // Calculates the berry loss
             foxSprite.SetActive(true); // Activates the fox sprite to indicate a disaster
@@ -57,4 +63,16 @@ public class DisasterScript : MonoBehaviour
         yield return new WaitForSeconds(10); // Waits for 10 seconds before allowing another disaster
         disasterActive = false; // Resets the disaster active flag
     }
+
+    //public KeyCode forceDisaster = KeyCode.F; // Key to force a disaster for testing purposes
+    //void LateUpdate()
+    //{
+    //    if (Input.GetKeyDown(forceDisaster))
+    //    {
+    //        if (disasterActive == false)
+    //        {
+    //            StartCoroutine(StartDisaster(true)); // Forces a disaster when the specified key is pressed
+    //        }
+    //    }
+    //}
 }

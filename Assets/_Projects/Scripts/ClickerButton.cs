@@ -15,6 +15,7 @@ public class ClickerButton : MonoBehaviour
     public void OnClick()
     {
         berrySound.Play(); // Plays the sound when the button is clicked
+        clickerButton.GetComponent<Animation>().Play("ClickerButtonAnim"); // Plays the click animation
         GlobalBerries.totalBerries += (StatsDisplayScript.berriesPerClick + 1); // Increases the total berries by the current berries per click plus one
 
     }
